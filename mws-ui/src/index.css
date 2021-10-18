@@ -13,12 +13,12 @@ code {
 }
 
 .Footer {
-  position: fixed;
+  position: static;
   bottom: 0;
   left: 0;
   width: 100%;
 }
 
 .Home {
-  margin-top: 10px;
+  margin-top: 80px;
 }
