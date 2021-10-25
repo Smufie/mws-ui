@@ -11,6 +11,10 @@ export default function AirPressureCard() {
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardHeader
+        style={{
+          backgroundColor: "#243b55",
+          color: "white",
+        }}
         avatar={<Avatar>P</Avatar>}
         title={<Typography>Air Pressure</Typography>}
       />

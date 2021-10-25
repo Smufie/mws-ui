@@ -11,6 +11,10 @@ export default function AirHumidityCard() {
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardHeader
+        style={{
+          background: "linear-gradient(45deg, #243b55 30%, #141e30 90%)",
+          color: "white",
+        }}
         avatar={<Avatar>H</Avatar>}
         title={<Typography>Air Humidity</Typography>}
       />

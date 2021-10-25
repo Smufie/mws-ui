@@ -1,0 +1,105 @@
+[
+    {
+      "stationId": "STACJA01",
+      "measurementDate": "2021-10-25T08:00:00",
+      "readingId": 1,
+      "temperature": 10,
+      "humidity": 45
+    },
+	
+    {
+      "stationId": "STACJA01",
+      "measurementDate": "2021-10-25T09:00:00",
+      "readingId": 2,
+      "temperature": 12,
+      "humidity": 43
+    },
+    
+    {
+      "stationId": "STACJA01",
+      "measurementDate": "2021-10-25T010:00:00",
+      "readingId": 3,
+      "temperature": 13,
+      "humidity": 40
+    },
+    
+    {
+      "stationId": "STACJA01",
+      "measurementDate": "2021-10-25T11:00:00",
+      "readingId": 4,
+      "temperature": 15,
+      "humidity": 39
+    },
+    
+    {
+      "stationId": "STACJA01",
+      "measurementDate": "2021-10-25T12:00:00",
+      "readingId": 5,
+      "temperature": 16,
+      "humidity": 38
+    },
+    
+    {
+      "stationId": "STACJA01",
+      "measurementDate": "2021-10-25T13:00:00",
+      "readingId": 6,
+      "temperature": 17,
+      "humidity": 38
+    },
+    
+    {
+      "stationId": "STACJA01",
+      "measurementDate": "2021-10-25T14:00:00",
+      "readingId": 7,
+      "temperature": 18,
+      "humidity": 38
+    },
+    
+    {
+      "stationId": "STACJA01",
+      "measurementDate": "2021-10-25T15:00:00",
+      "readingId": 8,
+      "temperature": 19,
+      "humidity": 37
+    },
+    
+    {
+      "stationId": "STACJA01",
+      "measurementDate": "2021-10-25T16:00:00",
+      "readingId": 9,
+      "temperature": 19,
+      "humidity": 37
+    },
+    
+    {
+      "stationId": "STACJA01",
+      "measurementDate": "2021-10-25T17:00:00",
+      "readingId": 10,
+      "temperature": 18,
+      "humidity": 38
+    },
+    
+    {
+      "stationId": "STACJA01",
+      "measurementDate": "2021-10-25T18:00:00",
+      "readingId": 11,
+      "temperature": 18,
+      "humidity": 38
+    },
+    
+    {
+      "stationId": "STACJA01",
+      "measurementDate": "2021-10-25T19:00:00",
+      "readingId": 12,
+      "temperature": 16,
+      "humidity": 40
+    },
+    
+    {
+      "stationId": "STACJA01",
+      "measurementDate": "2021-10-25T20:00:00",
+      "readingId": 13,
+      "temperature": 14,
+      "humidity": 41
+    }
+]
