@@ -14,17 +14,13 @@ export default function TemperatureCard() {
   const [currentTemp, setcurrentTemp] = useState(0);
   const [isFahrenheit, setisFahrenheit] = useState(false);
 
-  function test() {
-    console.log(data[[Object.keys(data).length] - 1].temperature);
-  }
-
   function changeToFahrenheit() {
     if (isFahrenheit == false) {
       setisFahrenheit(true);
       setcurrentTemp(currentTemp * (9 / 5) + 32);
     } else {
       setisFahrenheit(false);
-      setcurrentTemp((currentTemp - 32) * (5 / 9));
+      setcurrentTemp(data[[Object.keys(data).length] - 1].temperature);
     }
   }
 
@@ -39,7 +35,7 @@ export default function TemperatureCard() {
   }, [data]);
 
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 345 }} style={{ height: "360px" }}>
       <CardHeader
         style={{
           background: "linear-gradient(45deg, #141e30 30%, #243b55 90%)",
@@ -49,12 +45,10 @@ export default function TemperatureCard() {
         title={<Typography>Temperature</Typography>}
       />
       <CardContent align="right">
-        <Typography gutterBottom variant="h3" component="div" align="right">
-          {currentTemp}
+        <Typography gutterBottom variant="h3" component="div">
+          {currentTemp} {isFahrenheit == false ? "°C" : "°F"}
         </Typography>
-        <Button align="right" onClick={changeToFahrenheit}>
-          Switch
-        </Button>
+        <Button onClick={changeToFahrenheit}>Switch</Button>
       </CardContent>
       <CardMedia
         component="img"
@@ -62,7 +56,6 @@ export default function TemperatureCard() {
         height="140"
         image={chart}
       />
-      <Button onClick={test}>CLICK</Button>
     </Card>
   );
 }
