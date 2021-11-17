@@ -51,7 +51,7 @@ export default function TemporaryDrawer() {
   );
 
   return (
-    <AppBar position="fixed" style={{ background: "#2E3B55" }}>
+    <AppBar position="fixed" style={{ background: "#141e30" }}>
       <Toolbar>
         <IconButton
           size="large"
