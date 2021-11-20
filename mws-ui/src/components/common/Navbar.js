@@ -14,6 +14,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import IconButton from "@mui/material/IconButton";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
+import { Link } from "react-router-dom";
 
 export default function TemporaryDrawer() {
   const [state, setState] = React.useState({
@@ -27,14 +28,12 @@ export default function TemporaryDrawer() {
   const list = () => (
     <Box>
       <List>
-        {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>
-              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-            </ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
+        <ListItem>
+          <Button component={Link} to="/temperatureInfo">
+            <ListItemIcon></ListItemIcon>
+            <ListItemText> Temperature Details</ListItemText>
+          </Button>
+        </ListItem>
       </List>
       <Divider />
       <List>
