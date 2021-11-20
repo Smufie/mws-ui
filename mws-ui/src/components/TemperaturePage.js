@@ -10,10 +10,16 @@ import CardMedia from "@mui/material/CardMedia";
 import { Avatar, CardHeader } from "@mui/material";
 import customInstance from "../api/axiosConfig";
 import Chart from "react-google-charts";
+import DateAdapter from "@mui/lab/AdapterMoment";
+import LocalizationProvider from "@mui/lab/LocalizationProvider";
+import DateTimePicker from "@mui/lab/DateTimePicker";
+import TextField from "@mui/material/TextField";
 
-export default function Home() {
+export default function TempertaurePage() {
   const [data, setData] = useState(0);
   const [chartTemp, setChartTemp] = useState([]);
+  const [searchFromValue, setSearchFromValue] = useState(new Date());
+  const [searchToValue, setSearchToValue] = useState(new Date());
 
   useEffect(() => {
     async function getData() {
@@ -24,7 +30,9 @@ export default function Home() {
     getData();
   }, []);
 
-  useEffect(() => {}, [chartTemp]);
+  useEffect(() => {
+    console.log(data);
+  }, [data]);
 
   useEffect(() => {
     var helpArray = [["x", "Temperature"]];
@@ -35,9 +43,36 @@ export default function Home() {
         helpArray.push([time, temperature]);
       }
     }
-    console.log(helpArray);
     setChartTemp(helpArray);
   }, [data]);
+
+  function filter() {
+    var searchFrom = new Date(
+      searchFromValue.setHours(searchFromValue.getHours() + 1)
+    ).toISOString();
+    var searchTo = new Date(searchToValue);
+    // searchFrom = searchFrom.setHours(searchFrom.getHours() + 1);
+    // searchTo = searchTo.setHours(searchTo.getHours() + 1);
+    console.log(searchFrom);
+    console.log(searchFrom);
+    // searchFrom = searchFrom
+    //   .toISOString()
+    //   .substring(0, searchFrom.toISOString().length - 5);
+    // customInstance
+    //   .get(
+    //     "measurements/" +
+    //       searchFrom +
+    //       "/" +
+    //       searchTo.toISOString().substring(0, searchTo.toISOString().length - 5)
+    //   )
+    //   .then((res) => {
+    //     setData(res.data);
+    //   });
+  }
+
+  const handleFromDataChange = (newValue) => {
+    setSearchFromValue(newValue);
+  };
 
   return (
     <Container>
@@ -69,6 +104,30 @@ export default function Home() {
           }}
           rootProps={{ "data-testid": "1" }}
         />
+        <Grid item xs={4}>
+          <LocalizationProvider dateAdapter={DateAdapter}>
+            <DateTimePicker
+              label="Filter From"
+              value={searchFromValue}
+              onChange={(newValue) => {
+                setSearchFromValue(newValue);
+              }}
+              renderInput={(params) => <TextField {...params} />}
+            />
+
+            <DateTimePicker
+              label="Filter To"
+              value={searchToValue}
+              onChange={(newValue) => {
+                setSearchToValue(newValue);
+              }}
+              renderInput={(params) => <TextField {...params} />}
+            />
+          </LocalizationProvider>
+        </Grid>
+        <Grid item xs={4}>
+          <Button onClick={() => filter()}>Filter</Button>
+        </Grid>
       </Grid>
     </Container>
   );
