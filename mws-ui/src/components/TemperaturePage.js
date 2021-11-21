@@ -50,24 +50,19 @@ export default function TempertaurePage() {
     var searchFrom = new Date(
       searchFromValue.setHours(searchFromValue.getHours() + 1)
     ).toISOString();
-    var searchTo = new Date(searchToValue);
-    // searchFrom = searchFrom.setHours(searchFrom.getHours() + 1);
-    // searchTo = searchTo.setHours(searchTo.getHours() + 1);
+    var searchTo = new Date(
+      searchToValue.setHours(searchToValue.getHours() + 1)
+    ).toISOString();
+    searchFrom = searchFrom.substring(0, searchFrom.length - 5);
+    searchTo = searchTo.substring(0, searchTo.length - 5);
+
+    console.log(searchTo);
     console.log(searchFrom);
-    console.log(searchFrom);
-    // searchFrom = searchFrom
-    //   .toISOString()
-    //   .substring(0, searchFrom.toISOString().length - 5);
-    // customInstance
-    //   .get(
-    //     "measurements/" +
-    //       searchFrom +
-    //       "/" +
-    //       searchTo.toISOString().substring(0, searchTo.toISOString().length - 5)
-    //   )
-    //   .then((res) => {
-    //     setData(res.data);
-    //   });
+    customInstance
+      .get("measurements/" + searchFrom + "/" + searchTo)
+      .then((res) => {
+        setData(res.data);
+      });
   }
 
   const handleFromDataChange = (newValue) => {
@@ -110,7 +105,7 @@ export default function TempertaurePage() {
               label="Filter From"
               value={searchFromValue}
               onChange={(newValue) => {
-                setSearchFromValue(newValue);
+                setSearchFromValue(new Date(newValue));
               }}
               renderInput={(params) => <TextField {...params} />}
             />
@@ -119,7 +114,7 @@ export default function TempertaurePage() {
               label="Filter To"
               value={searchToValue}
               onChange={(newValue) => {
-                setSearchToValue(newValue);
+                setSearchToValue(new Date(newValue));
               }}
               renderInput={(params) => <TextField {...params} />}
             />
