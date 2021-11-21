@@ -46,8 +46,8 @@ export default function TemporaryDrawer() {
         backgroundColor: "#141e30",
       }}
     >
-      <Typography variant="h4" color="common.white">
-        More Actions:
+      <Typography variant="h4" color="common.white" align="center">
+        More Actions
       </Typography>
       <List>
         <Divider />
