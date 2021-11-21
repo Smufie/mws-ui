@@ -11,7 +11,7 @@ import TextField from "@mui/material/TextField";
 
 export default function TempertaurePage() {
   const [data, setData] = useState(0);
-  const [chartTemp, setChartTemp] = useState([]);
+  const [chartPressure, setChartPressure] = useState([]);
   const [searchFromValue, setSearchFromValue] = useState(new Date());
   const [searchToValue, setSearchToValue] = useState(new Date());
 
@@ -29,15 +29,15 @@ export default function TempertaurePage() {
   }, [data]);
 
   useEffect(() => {
-    var helpArray = [["x", "Temperature"]];
+    var helpArray = [["x", "Air Pressure"]];
     if (data !== 0) {
       for (let row of data) {
-        const { measurementDate, temperature } = row;
+        const { measurementDate, pressure } = row;
         var time = new Date(measurementDate);
-        helpArray.push([time, temperature]);
+        helpArray.push([time, pressure]);
       }
     }
-    setChartTemp(helpArray);
+    setChartPressure(helpArray);
   }, [data]);
 
   function filter() {
@@ -74,7 +74,7 @@ export default function TempertaurePage() {
         style={{ minHeight: "100vh" }}
       >
         <Typography variant="h3" align="center">
-          Temperature Details
+          Air Pressure Details
         </Typography>
 
         <Chart
@@ -82,7 +82,7 @@ export default function TempertaurePage() {
           height={"400px"}
           chartType="LineChart"
           loader={<div>Loading Chart</div>}
-          data={chartTemp}
+          data={chartPressure}
           options={{
             hAxis: {
               title: "Date Time",

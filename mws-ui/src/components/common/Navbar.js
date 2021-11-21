@@ -34,17 +34,13 @@ export default function TemporaryDrawer() {
             <ListItemText> Temperature Details</ListItemText>
           </Button>
         </ListItem>
-      </List>
-      <Divider />
-      <List>
-        {["All mail", "Trash", "Spam"].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>
-              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-            </ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
+        <Divider />
+        <ListItem>
+          <Button component={Link} to="/airPressureInfo">
+            <ListItemIcon></ListItemIcon>
+            <ListItemText> Air Pressure Details</ListItemText>
+          </Button>
+        </ListItem>
       </List>
     </Box>
   );
