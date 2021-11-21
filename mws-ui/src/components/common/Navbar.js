@@ -68,9 +68,16 @@ export default function TemporaryDrawer() {
         >
           {list()}
         </Drawer>
-        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-          Mobile Weather Station
-        </Typography>
+        <Button component={Link} to="/">
+          <Typography
+            variant="h6"
+            component="div"
+            sx={{ flexGrow: 1 }}
+            color="common.white"
+          >
+            Mobile Weather Station
+          </Typography>
+        </Button>
       </Toolbar>
     </AppBar>
   );
