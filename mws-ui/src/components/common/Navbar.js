@@ -39,28 +39,42 @@ export default function TemporaryDrawer() {
   }, 1000);
 
   const list = () => (
-    <Box>
-      <Typography variant="h4">More Actions:</Typography>
+    <Box
+      sx={{
+        width: 300,
+        height: "100%",
+        backgroundColor: "#141e30",
+      }}
+    >
+      <Typography variant="h4" color="common.white">
+        More Actions:
+      </Typography>
       <List>
         <Divider />
         <ListItem>
           <Button component={Link} to="/temperatureInfo">
             <ListItemIcon></ListItemIcon>
-            <ListItemText> Temperature Details</ListItemText>
+            <ListItemText>
+              <Typography color="common.white">Temperature Details</Typography>
+            </ListItemText>
           </Button>
         </ListItem>
         <Divider />
         <ListItem>
           <Button component={Link} to="/airPressureInfo">
             <ListItemIcon></ListItemIcon>
-            <ListItemText> Air Pressure Details</ListItemText>
+            <ListItemText>
+              <Typography color="common.white">Air Pressure Details</Typography>
+            </ListItemText>
           </Button>
         </ListItem>
         <Divider />
         <ListItem>
           <Button component={Link} to="/airHumidityInfo">
             <ListItemIcon></ListItemIcon>
-            <ListItemText> Air Humidity Details</ListItemText>
+            <ListItemText>
+              <Typography color="common.white">Air Humidity Details</Typography>
+            </ListItemText>
           </Button>
         </ListItem>
         <Divider />
