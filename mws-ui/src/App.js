@@ -5,6 +5,7 @@ import Footer from "./components/common/Footer";
 import Navbar from "./components/common/Navbar";
 import TemperaturePage from "./components/TemperaturePage";
 import AirPressurePage from "./components/AirPressurePage";
+import AirHumidityPage from "./components/AirHumidityPage";
 
 export default function App() {
   return (
@@ -15,6 +16,7 @@ export default function App() {
           <Route exact path="/" component={Home} />
           <Route exact path="/temperatureInfo" component={TemperaturePage} />
           <Route exact path="/airPressureInfo" component={AirPressurePage} />
+          <Route exact path="/airHumidityInfo" component={AirHumidityPage} />
         </Switch>
       </Router>
       <Footer />

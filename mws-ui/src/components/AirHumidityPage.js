@@ -9,9 +9,9 @@ import LocalizationProvider from "@mui/lab/LocalizationProvider";
 import DateTimePicker from "@mui/lab/DateTimePicker";
 import TextField from "@mui/material/TextField";
 
-export default function AirPressurePage() {
+export default function AirHumidityPage() {
   const [data, setData] = useState(0);
-  const [chartPressure, setChartPressure] = useState([]);
+  const [chartHumidity, setChartHumidity] = useState([]);
   const [searchFromValue, setSearchFromValue] = useState(new Date());
   const [searchToValue, setSearchToValue] = useState(new Date());
 
@@ -29,15 +29,15 @@ export default function AirPressurePage() {
   }, [data]);
 
   useEffect(() => {
-    var helpArray = [["x", "Air Pressure"]];
+    var helpArray = [["x", "Air Humidity"]];
     if (data !== 0) {
       for (let row of data) {
-        const { measurementDate, pressure } = row;
+        const { measurementDate, humidity } = row;
         var time = new Date(measurementDate);
-        helpArray.push([time, pressure]);
+        helpArray.push([time, humidity]);
       }
     }
-    setChartPressure(helpArray);
+    setChartHumidity(helpArray);
   }, [data]);
 
   function filter() {
@@ -74,7 +74,7 @@ export default function AirPressurePage() {
         style={{ minHeight: "100vh" }}
       >
         <Typography variant="h3" align="center">
-          Air Pressure Details
+          Air Humidity Details
         </Typography>
 
         <Chart
@@ -82,13 +82,13 @@ export default function AirPressurePage() {
           height={"400px"}
           chartType="LineChart"
           loader={<div>Loading Chart</div>}
-          data={chartPressure}
+          data={chartHumidity}
           options={{
             hAxis: {
               title: "Date Time",
             },
             vAxis: {
-              title: "hPa",
+              title: "%",
             },
           }}
           rootProps={{ "data-testid": "1" }}

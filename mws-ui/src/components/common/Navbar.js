@@ -27,7 +27,9 @@ export default function TemporaryDrawer() {
 
   const list = () => (
     <Box>
+      <Typography variant="h4">More Actions:</Typography>
       <List>
+        <Divider />
         <ListItem>
           <Button component={Link} to="/temperatureInfo">
             <ListItemIcon></ListItemIcon>
@@ -41,6 +43,14 @@ export default function TemporaryDrawer() {
             <ListItemText> Air Pressure Details</ListItemText>
           </Button>
         </ListItem>
+        <Divider />
+        <ListItem>
+          <Button component={Link} to="/airHumidityInfo">
+            <ListItemIcon></ListItemIcon>
+            <ListItemText> Air Humidity Details</ListItemText>
+          </Button>
+        </ListItem>
+        <Divider />
       </List>
     </Box>
   );
