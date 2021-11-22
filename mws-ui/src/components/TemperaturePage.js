@@ -132,15 +132,9 @@ export default function TempertaurePage() {
           </LocalizationProvider>
         </Grid>
         <Grid item xs={4}>
-          <Button onClick={() => setTimeStampAsDay()}>
-            Measurements from the last day
-          </Button>
-          <Button onClick={() => setTimeStampAsWeek()}>
-            Measurements from the last week
-          </Button>
-          <Button onClick={() => setTimeStampAsMonth()}>
-            Measurements from the last month
-          </Button>
+          <Button onClick={() => setTimeStampAsDay()}>Last Day</Button>
+          <Button onClick={() => setTimeStampAsWeek()}>Last Week</Button>
+          <Button onClick={() => setTimeStampAsMonth()}>Last Month</Button>
         </Grid>
         <Grid item xs={4}>
           <Button onClick={() => filter()}>Filter</Button>
