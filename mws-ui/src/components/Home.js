@@ -9,12 +9,40 @@ import { Container, Grid } from "@mui/material";
 import CardMedia from "@mui/material/CardMedia";
 import { Avatar, CardHeader } from "@mui/material";
 import customInstance from "../api/axiosConfig";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {faCloud, faThermometerHalf, faWind, faTint} from '@fortawesome/free-solid-svg-icons'
 
 export default function Home() {
   const [data, setData] = useState(0);
   const [currentTemp, setCurrentTemp] = useState(0);
   const [currentAirPressure, setCurrentAirPressure] = useState(0);
   const [currentAirHumidity, setCurrentAirHumidity] = useState(0);
+  const [currentAirQuality, setCurrentAirQuality] = useState(0);
+
+  function aiqColor() {
+    if (currentAirQuality <= 13) {
+      return "#008000";
+    }
+    else if (currentAirQuality >= 13.1 && currentAirQuality <= 35) {
+      return "#7CFC00"
+    }
+    else if (currentAirQuality >= 35.1 && currentAirQuality <= 55) {
+      return "#FFFF00"
+    }
+    else if (currentAirQuality >= 55.1 && currentAirQuality <= 75) {
+      return "#FFA500"
+    }
+    else if (currentAirQuality >= 75.1 && currentAirQuality <= 110) {
+      return "#FF0000"
+    }
+    else if (currentAirQuality >= 110) {
+      return "#B22222"
+    }
+    else {
+      return "#FFFFFF"
+    }
+
+  }
 
   useEffect(() => {
     async function getData() {
@@ -31,6 +59,7 @@ export default function Home() {
       setCurrentTemp(data[length - 1].temperature);
       setCurrentAirPressure(data[length - 1].pressure);
       setCurrentAirHumidity(data[length - 1].humidity);
+      setCurrentAirQuality(data[length - 1].airQuality)
     }
   }, [data]);
 
@@ -44,7 +73,7 @@ export default function Home() {
                 background: "linear-gradient(45deg, #141e30 30%, #243b55 90%)",
                 color: "white",
               }}
-              avatar={<Avatar>T</Avatar>}
+              avatar={<FontAwesomeIcon icon={faThermometerHalf} size="2x" color="white"/>}
               title={<Typography>Temperature</Typography>}
             />
             <CardContent align="right">
@@ -61,7 +90,7 @@ export default function Home() {
                 background: "linear-gradient(45deg, #141e30 30%, #243b55 90%)",
                 color: "white",
               }}
-              avatar={<Avatar>P</Avatar>}
+              avatar={<FontAwesomeIcon icon={faWind} size="2x" color="white"/>}
               title={<Typography>Air Pressure</Typography>}
             />
             <CardContent align="right">
@@ -78,12 +107,31 @@ export default function Home() {
                 background: "linear-gradient(45deg, #141e30 30%, #243b55 90%)",
                 color: "white",
               }}
-              avatar={<Avatar>H</Avatar>}
+              avatar={<FontAwesomeIcon icon={faTint} size="2x" color="white"/>}
               title={<Typography>Air Humidity</Typography>}
             />
             <CardContent align="right">
               <Typography gutterBottom variant="h3" component="div">
                 {currentAirHumidity}%
+              </Typography>
+            </CardContent>
+          </Card>
+        </Grid>
+      </Grid>
+      <Grid container spacing={2} alignItems="center" justifyContent="center" paddingTop={5}>
+      <Grid item md={4} >
+          <Card sx={{ maxWidth: 345 }} style={{ height: "360px", backgroundColor:aiqColor() }} align="left" >
+            <CardHeader
+              style={{
+                background: "linear-gradient(45deg, #141e30 30%, #243b55 90%)",
+                color: "white",
+              }}
+              avatar={<FontAwesomeIcon icon={faCloud} size="2x" color="white"/>}
+              title={<Typography>Air Quality</Typography>}
+            />
+            <CardContent align="right" >
+              <Typography gutterBottom variant="h3" component="div">
+                {currentAirQuality} AQI
               </Typography>
             </CardContent>
           </Card>

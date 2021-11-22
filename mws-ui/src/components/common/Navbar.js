@@ -16,6 +16,8 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import { Link } from "react-router-dom";
 import { Grid } from "@mui/material";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {faCloud, faThermometerHalf, faWind, faTint, faHome} from '@fortawesome/free-solid-svg-icons'
 
 export default function TemporaryDrawer() {
   const [state, setState] = React.useState({
@@ -52,8 +54,8 @@ export default function TemporaryDrawer() {
       <List>
         <Divider />
         <ListItem>
-          <Button component={Link} to="/temperatureInfo">
-            <ListItemIcon></ListItemIcon>
+          <Button component={Link} to="/temperatureInfo" >
+            <ListItemIcon><FontAwesomeIcon icon={faThermometerHalf} size="3x" color="white"/></ListItemIcon>
             <ListItemText>
               <Typography color="common.white">Temperature Details</Typography>
             </ListItemText>
@@ -62,7 +64,7 @@ export default function TemporaryDrawer() {
         <Divider />
         <ListItem>
           <Button component={Link} to="/airPressureInfo">
-            <ListItemIcon></ListItemIcon>
+            <ListItemIcon><FontAwesomeIcon icon={faWind} size="3x" color="white"/></ListItemIcon>
             <ListItemText>
               <Typography color="common.white">Air Pressure Details</Typography>
             </ListItemText>
@@ -71,13 +73,30 @@ export default function TemporaryDrawer() {
         <Divider />
         <ListItem>
           <Button component={Link} to="/airHumidityInfo">
-            <ListItemIcon></ListItemIcon>
+            <ListItemIcon><FontAwesomeIcon icon={faTint} size="3x" color="white"/></ListItemIcon>
             <ListItemText>
               <Typography color="common.white">Air Humidity Details</Typography>
             </ListItemText>
           </Button>
         </ListItem>
         <Divider />
+        <ListItem>
+          <Button component={Link} to="/airQualityInfo">
+            <ListItemIcon><FontAwesomeIcon icon={faCloud} size="3x" color="white"/></ListItemIcon>
+            <ListItemText>
+              <Typography color="common.white">Air Quality Details</Typography>
+            </ListItemText>
+          </Button>
+        </ListItem>
+        <Divider />
+        <ListItem>
+          <Button component={Link} to="/">
+            <ListItemIcon><FontAwesomeIcon icon={faHome} size="3x" color="white"/></ListItemIcon>
+            <ListItemText>
+              <Typography color="common.white">Home</Typography>
+            </ListItemText>
+          </Button>
+        </ListItem>
       </List>
     </Box>
   );
