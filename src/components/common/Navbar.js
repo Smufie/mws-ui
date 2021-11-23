@@ -23,7 +23,7 @@ import {
   faWind,
   faTint,
   faHome,
-  faInfo
+  faInfo,
 } from "@fortawesome/free-solid-svg-icons";
 
 export default function TemporaryDrawer() {
@@ -165,7 +165,7 @@ export default function TemporaryDrawer() {
               </Typography>
             </Button>
           </Grid>
-          <Grid item xs={5}></Grid>
+          <Grid item xs={4} md={5}></Grid>
           <Grid item xs={2}>
             <Typography align="right" id="watch" color="common.white" />
           </Grid>

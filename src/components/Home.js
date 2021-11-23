@@ -63,9 +63,9 @@ export default function Home() {
 
   return (
     <Container className="Margin">
-      <Grid container spacing={2} alignItems="center" justifyContent="center">
-        <Grid item md={4}>
-          <Card sx={{ maxWidth: 345 }} style={{ height: "360px" }}>
+      <Grid container spacing={2}>
+        <Grid item xs={8} md={4}>
+          <Card>
             <CardHeader
               style={{
                 background: "linear-gradient(45deg, #141e30 30%, #243b55 90%)",
@@ -87,8 +87,8 @@ export default function Home() {
             </CardContent>
           </Card>
         </Grid>
-        <Grid item md={4}>
-          <Card sx={{ maxWidth: 345 }} style={{ height: "360px" }}>
+        <Grid item xs={8} md={4}>
+          <Card>
             <CardHeader
               style={{
                 background: "linear-gradient(45deg, #141e30 30%, #243b55 90%)",
@@ -104,8 +104,8 @@ export default function Home() {
             </CardContent>
           </Card>
         </Grid>
-        <Grid item md={4}>
-          <Card sx={{ maxWidth: 345 }} style={{ height: "360px" }}>
+        <Grid item xs={8} md={4}>
+          <Card>
             <CardHeader
               style={{
                 background: "linear-gradient(45deg, #141e30 30%, #243b55 90%)",
@@ -121,20 +121,9 @@ export default function Home() {
             </CardContent>
           </Card>
         </Grid>
-      </Grid>
-      <Grid
-        container
-        spacing={2}
-        alignItems="center"
-        justifyContent="center"
-        paddingTop={5}
-      >
-        <Grid item md={4}>
-          <Card
-            sx={{ maxWidth: 345 }}
-            style={{ height: "360px", backgroundColor: aiqColor() }}
-            align="left"
-          >
+        <Grid item xs={8} md={4}></Grid>
+        <Grid item xs={8} md={4}>
+          <Card style={{ backgroundColor: aiqColor() }} align="left">
             <CardHeader
               style={{
                 background: "linear-gradient(45deg, #141e30 30%, #243b55 90%)",

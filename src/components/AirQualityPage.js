@@ -7,7 +7,7 @@ import DateAdapter from "@mui/lab/AdapterMoment";
 import LocalizationProvider from "@mui/lab/LocalizationProvider";
 import DateTimePicker from "@mui/lab/DateTimePicker";
 import TextField from "@mui/material/TextField";
-import BasicModal from "./AIQModal"
+import BasicModal from "./AIQModal";
 
 export default function AirQualityPage() {
   const [data, setData] = useState(0);
@@ -67,15 +67,14 @@ export default function AirQualityPage() {
         direction="column"
         alignItems="center"
         justifyContent="center"
-        style={{ minHeight: "100vh" }}
       >
         <Typography variant="h3" align="center">
           Air Quality Details
         </Typography>
 
         <Chart
-          width={"800px"}
-          height={"400px"}
+          width={"60vw"}
+          height={"80vh"}
           chartType="LineChart"
           loader={<div>Loading Chart</div>}
           data={qualityVal}

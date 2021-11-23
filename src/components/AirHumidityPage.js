@@ -71,15 +71,14 @@ export default function AirHumidityPage() {
         direction="column"
         alignItems="center"
         justifyContent="center"
-        style={{ minHeight: "100vh" }}
       >
         <Typography variant="h3" align="center">
           Air Humidity Details
         </Typography>
 
         <Chart
-          width={"800px"}
-          height={"400px"}
+          width={"60vw"}
+          height={"80vh"}
           chartType="LineChart"
           loader={<div>Loading Chart</div>}
           data={chartHumidity}
