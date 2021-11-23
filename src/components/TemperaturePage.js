@@ -59,9 +59,26 @@ export default function TempertaurePage() {
       });
   }
 
-  const handleFromDataChange = (newValue) => {
-    setSearchFromValue(newValue);
-  };
+  function setTimeStampAsDay() {
+    setSearchToValue(new Date(Date.now()));
+    setSearchFromValue(
+      new Date(searchToValue.setDate(searchToValue.getDate() - 1))
+    );
+  }
+
+  function setTimeStampAsWeek() {
+    setSearchToValue(new Date(Date.now()));
+    setSearchFromValue(
+      new Date(searchToValue.setDate(searchToValue.getDate() - 7))
+    );
+  }
+
+  function setTimeStampAsMonth() {
+    setSearchToValue(new Date(Date.now()));
+    setSearchFromValue(
+      new Date(searchToValue.setMonth(searchToValue.getMonth() - 1))
+    );
+  }
 
   return (
     <Container>
@@ -113,6 +130,11 @@ export default function TempertaurePage() {
               renderInput={(params) => <TextField {...params} />}
             />
           </LocalizationProvider>
+        </Grid>
+        <Grid item xs={4}>
+          <Button onClick={() => setTimeStampAsDay()}>Last Day</Button>
+          <Button onClick={() => setTimeStampAsWeek()}>Last Week</Button>
+          <Button onClick={() => setTimeStampAsMonth()}>Last Month</Button>
         </Grid>
         <Grid item xs={4}>
           <Button onClick={() => filter()}>Filter</Button>
