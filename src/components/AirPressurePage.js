@@ -59,9 +59,30 @@ export default function AirPressurePage() {
       });
   }
 
-  const handleFromDataChange = (newValue) => {
-    setSearchFromValue(newValue);
-  };
+  function setTimeStampAsDay() {
+    setSearchToValue(new Date(Date.now()));
+    setSearchFromValue(
+      new Date(searchToValue.setDate(searchToValue.getDate() - 1))
+    );
+  }
+
+  function setTimeStampAsWeek() {
+    setSearchToValue(new Date(Date.now()));
+    setSearchFromValue(
+      new Date(searchToValue.setDate(searchToValue.getDate() - 7))
+    );
+  }
+
+  function setTimeStampAsMonth() {
+    setSearchToValue(new Date(Date.now()));
+    setSearchFromValue(
+      new Date(searchToValue.setMonth(searchToValue.getMonth() - 1))
+    );
+  }
+
+  useEffect(() => {
+    filter();
+  }, [searchFromValue, searchToValue]);
 
   return (
     <Container className="Margin">
@@ -113,8 +134,16 @@ export default function AirPressurePage() {
             />
           </LocalizationProvider>
         </Grid>
-        <Grid item xs={4}>
-          <Button onClick={() => filter()}>Filter</Button>
+        <Grid item xs={4} m={2}>
+          <Button variant="contained" onClick={() => setTimeStampAsDay()}>
+            Last Day
+          </Button>
+          <Button variant="contained" onClick={() => setTimeStampAsWeek()}>
+            Last Week
+          </Button>
+          <Button variant="contained" onClick={() => setTimeStampAsMonth()}>
+            Last Month
+          </Button>
         </Grid>
       </Grid>
     </Container>
