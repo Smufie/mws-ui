@@ -7,6 +7,7 @@ import TemperaturePage from "./components/TemperaturePage";
 import AirPressurePage from "./components/AirPressurePage";
 import AirHumidityPage from "./components/AirHumidityPage";
 import AirQualityPage from "./components/AirQualityPage";
+import Info from "./components/Info";
 
 export default function App() {
   return (
@@ -19,6 +20,7 @@ export default function App() {
           <Route exact path="/airPressureInfo" component={AirPressurePage} />
           <Route exact path="/airHumidityInfo" component={AirHumidityPage} />
           <Route exact path="/airQualityInfo" component={AirQualityPage} />
+          <Route exact path="/info" component={Info} />
         </Switch>
       </Router>
       <Footer />

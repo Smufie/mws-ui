@@ -60,7 +60,7 @@ export default function AirQualityPage() {
   }
 
   return (
-    <Container>
+    <Container className="Margin">
       <Grid
         container
         spacing={0}

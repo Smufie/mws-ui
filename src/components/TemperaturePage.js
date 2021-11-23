@@ -81,7 +81,7 @@ export default function TempertaurePage() {
   }
 
   return (
-    <Container>
+    <Container className="Margin">
       <Grid
         container
         spacing={0}

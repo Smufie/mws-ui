@@ -64,7 +64,7 @@ export default function AirHumidityPage() {
   };
 
   return (
-    <Container>
+    <Container className="Margin">
       <Grid
         container
         spacing={0}

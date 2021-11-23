@@ -62,7 +62,7 @@ export default function Home() {
   }, [data]);
 
   return (
-    <Container className="Home">
+    <Container className="Margin">
       <Grid container spacing={2} alignItems="center" justifyContent="center">
         <Grid item md={4}>
           <Card sx={{ maxWidth: 345 }} style={{ height: "360px" }}>
