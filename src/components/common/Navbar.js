@@ -23,6 +23,7 @@ import {
   faWind,
   faTint,
   faHome,
+  faInfo,
 } from "@fortawesome/free-solid-svg-icons";
 
 export default function TemporaryDrawer() {
@@ -118,6 +119,16 @@ export default function TemporaryDrawer() {
           </Button>
         </ListItem>
         <Divider />
+        <ListItem>
+          <Button component={Link} to="/info">
+            <ListItemIcon>
+              <FontAwesomeIcon icon={faInfo} size="3x" color="white" />
+            </ListItemIcon>
+            <ListItemText>
+              <Typography color="common.white">About</Typography>
+            </ListItemText>
+          </Button>
+        </ListItem>
       </List>
     </Box>
   );
@@ -154,7 +165,7 @@ export default function TemporaryDrawer() {
               </Typography>
             </Button>
           </Grid>
-          <Grid item xs={5}></Grid>
+          <Grid item xs={4} md={5}></Grid>
           <Grid item xs={2}>
             <Typography align="right" id="watch" color="common.white" />
           </Grid>

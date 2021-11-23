@@ -80,23 +80,25 @@ export default function TempertaurePage() {
     );
   }
 
+  useEffect(() => {
+    filter();
+  }, [searchFromValue, searchToValue]);
+
   return (
-    <Container>
+    <Container className="Margin">
       <Grid
         container
         spacing={0}
         direction="column"
         alignItems="center"
         justifyContent="center"
-        style={{ minHeight: "100vh" }}
       >
         <Typography variant="h3" align="center">
           Temperature Details
         </Typography>
-
         <Chart
-          width={"800px"}
-          height={"400px"}
+          width={"60vw"}
+          height={"80vh"}
           chartType="LineChart"
           loader={<div>Loading Chart</div>}
           data={chartTemp}
@@ -131,13 +133,16 @@ export default function TempertaurePage() {
             />
           </LocalizationProvider>
         </Grid>
-        <Grid item xs={4}>
-          <Button onClick={() => setTimeStampAsDay()}>Last Day</Button>
-          <Button onClick={() => setTimeStampAsWeek()}>Last Week</Button>
-          <Button onClick={() => setTimeStampAsMonth()}>Last Month</Button>
-        </Grid>
-        <Grid item xs={4}>
-          <Button onClick={() => filter()}>Filter</Button>
+        <Grid item xs={4} m={2}>
+          <Button variant="contained" onClick={() => setTimeStampAsDay()}>
+            Last Day
+          </Button>
+          <Button variant="contained" onClick={() => setTimeStampAsWeek()}>
+            Last Week
+          </Button>
+          <Button variant="contained" onClick={() => setTimeStampAsMonth()}>
+            Last Month
+          </Button>
         </Grid>
       </Grid>
     </Container>

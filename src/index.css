@@ -13,14 +13,34 @@ code {
 }
 
 .Footer {
-  position: fixed;
   bottom: 0;
-  left: 0;
   width: 100%;
   margin-top: 15%;
+  position: absolute;
 }
 
-.Home {
+.Margin {
   margin-top: 80px;
-  margin-bottom: 80px;
+  margin-bottom: 100px;
+}
+
+@media screen and (max-width: 2200px) {
+  .Margin {
+    margin-top: 120px;
+    height: auto;
+  }
+  .Footer {
+    height: auto;
+    width: 100vw;
+  }
+  .Footer {
+    text-align: center;
+    margin-left: 0;
+    padding-left: 0;
+    float: none;
+    position: fixed;
+  }
+  .Footer {
+    display: inline-block;
+  }
 }

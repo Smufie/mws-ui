@@ -7,7 +7,7 @@ import DateAdapter from "@mui/lab/AdapterMoment";
 import LocalizationProvider from "@mui/lab/LocalizationProvider";
 import DateTimePicker from "@mui/lab/DateTimePicker";
 import TextField from "@mui/material/TextField";
-import BasicModal from "./AIQModal"
+import BasicModal from "./AIQModal";
 
 export default function AirQualityPage() {
   const [data, setData] = useState(0);
@@ -59,23 +59,47 @@ export default function AirQualityPage() {
       });
   }
 
+  function setTimeStampAsDay() {
+    setSearchToValue(new Date(Date.now()));
+    setSearchFromValue(
+      new Date(searchToValue.setDate(searchToValue.getDate() - 1))
+    );
+  }
+
+  function setTimeStampAsWeek() {
+    setSearchToValue(new Date(Date.now()));
+    setSearchFromValue(
+      new Date(searchToValue.setDate(searchToValue.getDate() - 7))
+    );
+  }
+
+  function setTimeStampAsMonth() {
+    setSearchToValue(new Date(Date.now()));
+    setSearchFromValue(
+      new Date(searchToValue.setMonth(searchToValue.getMonth() - 1))
+    );
+  }
+
+  useEffect(() => {
+    filter();
+  }, [searchFromValue, searchToValue]);
+
   return (
-    <Container>
+    <Container className="Margin">
       <Grid
         container
         spacing={0}
         direction="column"
         alignItems="center"
         justifyContent="center"
-        style={{ minHeight: "100vh" }}
       >
         <Typography variant="h3" align="center">
           Air Quality Details
         </Typography>
 
         <Chart
-          width={"800px"}
-          height={"400px"}
+          width={"60vw"}
+          height={"80vh"}
           chartType="LineChart"
           loader={<div>Loading Chart</div>}
           data={qualityVal}
@@ -110,8 +134,16 @@ export default function AirQualityPage() {
             />
           </LocalizationProvider>
         </Grid>
-        <Grid item xs={4}>
-          <Button onClick={() => filter()}>Filter</Button>
+        <Grid item xs={4} m={2}>
+          <Button variant="contained" onClick={() => setTimeStampAsDay()}>
+            Last Day
+          </Button>
+          <Button variant="contained" onClick={() => setTimeStampAsWeek()}>
+            Last Week
+          </Button>
+          <Button variant="contained" onClick={() => setTimeStampAsMonth()}>
+            Last Month
+          </Button>
         </Grid>
         <BasicModal />
       </Grid>
