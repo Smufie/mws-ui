@@ -139,7 +139,7 @@ export default function Home() {
             />
             <CardContent align="right">
               <Typography gutterBottom variant="h3" component="div">
-                {currentAirPressure}
+                {currentAirPressure} hPa
               </Typography>
             </CardContent>
           </Card>
