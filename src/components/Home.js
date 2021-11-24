@@ -24,7 +24,7 @@ export default function Home() {
   const [currentAirPressure, setCurrentAirPressure] = useState(0);
   const [currentAirHumidity, setCurrentAirHumidity] = useState(0);
   const [currentAirQuality, setCurrentAirQuality] = useState(0);
-  const [lastMeasurmentDate, setLastMeasurmentDate] = useState("T");
+  const [lastMeasurmentDate, setLastMeasurmentDate] = useState("");
   const [flipTemperatureCard, setFlipTemperatureCard] = useState(false);
 
   function aiqColor() {

@@ -11,7 +11,10 @@ import TextField from "@mui/material/TextField";
 
 export default function AirHumidityPage() {
   const [data, setData] = useState(0);
-  const [chartHumidity, setChartHumidity] = useState([]);
+  const [chartHumidity, setChartHumidity] = useState([
+    ["x", "Air Humiditygit"],
+    [0, 0],
+  ]);
   const [searchFromValue, setSearchFromValue] = useState(new Date());
   const [searchToValue, setSearchToValue] = useState(new Date());
 

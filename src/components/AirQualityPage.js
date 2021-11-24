@@ -11,7 +11,10 @@ import BasicModal from "./AIQModal";
 
 export default function AirQualityPage() {
   const [data, setData] = useState(0);
-  const [qualityVal, setQualityVal] = useState([]);
+  const [qualityVal, setQualityVal] = useState([
+    ["x", "Air Quality"],
+    [0, 0],
+  ]);
   const [searchFromValue, setSearchFromValue] = useState(new Date());
   const [searchToValue, setSearchToValue] = useState(new Date());
 

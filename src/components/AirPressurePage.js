@@ -11,7 +11,10 @@ import TextField from "@mui/material/TextField";
 
 export default function AirPressurePage() {
   const [data, setData] = useState(0);
-  const [chartPressure, setChartPressure] = useState([]);
+  const [chartPressure, setChartPressure] = useState([
+    ["x", "Air Pressure"],
+    [0, 0],
+  ]);
   const [searchFromValue, setSearchFromValue] = useState(new Date());
   const [searchToValue, setSearchToValue] = useState(new Date());
 

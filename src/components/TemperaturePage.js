@@ -11,7 +11,10 @@ import TextField from "@mui/material/TextField";
 
 export default function TempertaurePage() {
   const [data, setData] = useState(0);
-  const [chartTemp, setChartTemp] = useState([]);
+  const [chartTemp, setChartTemp] = useState([
+    ["x", "Temperature"],
+    [0, 0],
+  ]);
   const [searchFromValue, setSearchFromValue] = useState(new Date());
   const [searchToValue, setSearchToValue] = useState(new Date());
 
