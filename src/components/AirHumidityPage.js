@@ -11,7 +11,10 @@ import TextField from "@mui/material/TextField";
 
 export default function AirHumidityPage() {
   const [data, setData] = useState(0);
-  const [chartHumidity, setChartHumidity] = useState([]);
+  const [chartHumidity, setChartHumidity] = useState([
+    ["x", "Air Humiditygit"],
+    [0, 0],
+  ]);
   const [searchFromValue, setSearchFromValue] = useState(new Date());
   const [searchToValue, setSearchToValue] = useState(new Date());
 
@@ -25,19 +28,15 @@ export default function AirHumidityPage() {
   }, []);
 
   useEffect(() => {
-    console.log(data);
-  }, [data]);
-
-  useEffect(() => {
     var helpArray = [["x", "Air Humidity"]];
-    if (data !== 0) {
+    if (data !== 0 && data.length !== 0) {
       for (let row of data) {
         const { measurementDate, humidity } = row;
         var time = new Date(measurementDate);
         helpArray.push([time, humidity]);
       }
+      setChartHumidity(helpArray);
     }
-    setChartHumidity(helpArray);
   }, [data]);
 
   function filter() {
@@ -49,9 +48,6 @@ export default function AirHumidityPage() {
     ).toISOString();
     searchFrom = searchFrom.substring(0, searchFrom.length - 5);
     searchTo = searchTo.substring(0, searchTo.length - 5);
-
-    console.log(searchTo);
-    console.log(searchFrom);
     customInstance
       .get("measurements/" + searchFrom + "/" + searchTo)
       .then((res) => {

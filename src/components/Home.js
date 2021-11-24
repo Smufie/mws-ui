@@ -16,6 +16,7 @@ import {
   faWind,
   faTint,
 } from "@fortawesome/free-solid-svg-icons";
+import ReactCardFlip from "react-card-flip";
 
 export default function Home() {
   const [data, setData] = useState(0);
@@ -23,6 +24,8 @@ export default function Home() {
   const [currentAirPressure, setCurrentAirPressure] = useState(0);
   const [currentAirHumidity, setCurrentAirHumidity] = useState(0);
   const [currentAirQuality, setCurrentAirQuality] = useState(0);
+  const [lastMeasurmentDate, setLastMeasurmentDate] = useState("");
+  const [flipTemperatureCard, setFlipTemperatureCard] = useState(false);
 
   function aiqColor() {
     if (currentAirQuality <= 13) {
@@ -58,37 +61,74 @@ export default function Home() {
       setCurrentAirPressure(data[length - 1].pressure);
       setCurrentAirHumidity(data[length - 1].humidity);
       setCurrentAirQuality(data[length - 1].airQuality);
+      setLastMeasurmentDate(data[length - 1].measurementDate.split("T"));
     }
   }, [data]);
 
   return (
     <Container className="Margin">
       <Grid container spacing={2}>
+        {/*-------------------------- TEMPERATURE CARD --------------------------*/}
         <Grid item xs={8} md={4}>
-          <Card>
-            <CardHeader
-              style={{
-                background: "linear-gradient(45deg, #141e30 30%, #243b55 90%)",
-                color: "white",
-              }}
-              avatar={
-                <FontAwesomeIcon
-                  icon={faThermometerHalf}
-                  size="2x"
-                  color="white"
-                />
-              }
-              title={<Typography>Temperature</Typography>}
-            />
-            <CardContent align="right">
-              <Typography gutterBottom variant="h3" component="div">
-                {currentTemp}°C
-              </Typography>
-            </CardContent>
-          </Card>
+          <ReactCardFlip
+            isFlipped={flipTemperatureCard}
+            flipDirection="vertical"
+          >
+            <Card className="CardMainPage">
+              <CardHeader
+                style={{
+                  background:
+                    "linear-gradient(45deg, #141e30 30%, #243b55 90%)",
+                  color: "white",
+                }}
+                avatar={
+                  <FontAwesomeIcon
+                    icon={faThermometerHalf}
+                    size="2x"
+                    color="white"
+                  />
+                }
+                title={<Typography>Temperature</Typography>}
+              />
+              <CardContent align="right">
+                <Typography gutterBottom variant="h3" component="div">
+                  {currentTemp}°C
+                </Typography>
+                <Button onClick={() => setFlipTemperatureCard(true)}>
+                  FLIP ME
+                </Button>
+              </CardContent>
+            </Card>
+            <Card className="CardMainPage">
+              <CardHeader
+                style={{
+                  background:
+                    "linear-gradient(45deg, #141e30 30%, #243b55 90%)",
+                  color: "white",
+                }}
+                avatar={
+                  <FontAwesomeIcon
+                    icon={faThermometerHalf}
+                    size="2x"
+                    color="white"
+                  />
+                }
+                title={<Typography>Temperature</Typography>}
+              />
+              <CardContent align="right">
+                <Typography gutterBottom variant="h4" component="div">
+                  Some boring text
+                </Typography>
+                <Button onClick={() => setFlipTemperatureCard(false)}>
+                  FLIP ME
+                </Button>
+              </CardContent>
+            </Card>
+          </ReactCardFlip>
         </Grid>
+        {/*-------------------------- AIR PRESSURE CARD --------------------------*/}
         <Grid item xs={8} md={4}>
-          <Card>
+          <Card className="CardMainPage">
             <CardHeader
               style={{
                 background: "linear-gradient(45deg, #141e30 30%, #243b55 90%)",
@@ -99,13 +139,14 @@ export default function Home() {
             />
             <CardContent align="right">
               <Typography gutterBottom variant="h3" component="div">
-                {currentAirPressure}
+                {currentAirPressure} hPa
               </Typography>
             </CardContent>
           </Card>
         </Grid>
+        {/*-------------------------- AIR HUMIDITY CARD --------------------------*/}
         <Grid item xs={8} md={4}>
-          <Card>
+          <Card className="CardMainPage">
             <CardHeader
               style={{
                 background: "linear-gradient(45deg, #141e30 30%, #243b55 90%)",
@@ -122,8 +163,15 @@ export default function Home() {
           </Card>
         </Grid>
         <Grid item xs={8} md={4}></Grid>
+        {/*-------------------------- AIR QUALITY CARD --------------------------*/}
         <Grid item xs={8} md={4}>
-          <Card style={{ backgroundColor: aiqColor() }} align="left">
+          <Card
+            className="CardMainPage"
+            style={{
+              backgroundColor: aiqColor(),
+            }}
+            align="left"
+          >
             <CardHeader
               style={{
                 background: "linear-gradient(45deg, #141e30 30%, #243b55 90%)",
@@ -142,6 +190,9 @@ export default function Home() {
           </Card>
         </Grid>
       </Grid>
+      <Typography align="center">
+        Last Measurment: {lastMeasurmentDate[0]} {lastMeasurmentDate[1]}
+      </Typography>
     </Container>
   );
 }
