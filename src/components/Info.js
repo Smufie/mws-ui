@@ -13,6 +13,8 @@ import jedrzej from "./Photos/jedrzej.jpg";
 import blazej from "./Photos/blazej.jpg";
 import janek from "./Photos/olszew.jpg";
 import kus from "./Photos/kus.jpg";
+import ImageSlider from "./ImageSlider";
+import { SliderData } from "./SliderData";
 
 export default function Info() {
   return (
@@ -188,6 +190,7 @@ export default function Info() {
         >
           Technologies that we used
         </Typography>
+        <ImageSlider slides={SliderData} />
       </Grid>
     </Container>
   );
