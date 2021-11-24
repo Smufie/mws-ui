@@ -25,19 +25,15 @@ export default function AirQualityPage() {
   }, []);
 
   useEffect(() => {
-    console.log(data);
-  }, [data]);
-
-  useEffect(() => {
     var helpArray = [["x", "Air Quality"]];
-    if (data !== 0) {
+    if (data !== 0 && data.length !== 0) {
       for (let row of data) {
         const { measurementDate, airQuality } = row;
         var time = new Date(measurementDate);
         helpArray.push([time, airQuality]);
       }
+      setQualityVal(helpArray);
     }
-    setQualityVal(helpArray);
   }, [data]);
 
   function filter() {
@@ -49,9 +45,6 @@ export default function AirQualityPage() {
     ).toISOString();
     searchFrom = searchFrom.substring(0, searchFrom.length - 5);
     searchTo = searchTo.substring(0, searchTo.length - 5);
-
-    console.log(searchTo);
-    console.log(searchFrom);
     customInstance
       .get("measurements/" + searchFrom + "/" + searchTo)
       .then((res) => {
