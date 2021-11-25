@@ -25,12 +25,15 @@ code {
 }
 
 .CardMainPage {
-  width: 350px;
-  height: 200px;
+  max-width: 350px;
+  min-width: 250px;
+  height: 250px;
 }
 
 .CardInfoPage {
-  width: 500;
+  max-width: 500px;
+  min-width: 250px;
+  margin: 10px 10px 10px 10px;
 }
 
 @media screen and (max-width: 2200px) {
@@ -49,19 +52,15 @@ code {
     display: inline-block;
   }
 }
-@media screen and (max-width: 400px) {
-  .CardInfoPage {
-    width: 300;
-  }
-}
 
 .slider {
   position: relative;
-  height: 50%;
+  max-height: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
   margin-bottom: 10%;
+  max-width: 500px;
 }
 
 .image-container {
@@ -100,4 +99,57 @@ code {
   z-index: 10;
   cursor: pointer;
   user-select: none;
+}
+
+@media screen and (max-width: 900px) {
+  .slider {
+    max-width: 250px;
+  }
+  .image-container {
+    width: 250px;
+    height: 150px;
+  }
+  .image {
+    max-width: 230px;
+    height: 130px;
+  }
+  .right-arrow {
+    font-size: 3rem;
+  }
+  .left-arrow {
+    font-size: 3rem;
+  }
+}
+
+@media screen and (max-width: 510px) {
+  .slider {
+    max-width: 175px;
+  }
+  .image-container {
+    width: 175px;
+    height: 105px;
+  }
+  .image {
+    max-width: 155px;
+    height: 90px;
+  }
+  .right-arrow {
+    font-size: 1.5rem;
+  }
+  .left-arrow {
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 440px) {
+  .filterButtons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+  .buttons {
+    margin-bottom: 10px;
+  }
 }

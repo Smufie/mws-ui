@@ -127,20 +127,23 @@ export default function TempertaurePage() {
               }}
               renderInput={(params) => <TextField {...params} />}
             />
-          </LocalizationProvider>
+          </LocalizationProvider >
         </Grid>
         <Grid item xs={4} m={2}>
-          <Button variant="contained" onClick={() => setTimeStampAsDay()}>
+          <div className="filterButtons">
+          <Button style={{marginLeft: 10, marginBottom: 10}} variant="contained" onClick={() => setTimeStampAsDay()}>
             Last Day
           </Button>
-          <Button variant="contained" onClick={() => setTimeStampAsWeek()}>
+          <Button  style={{marginLeft: 10, marginBottom: 10}} variant="contained" onClick={() => setTimeStampAsWeek()}>
             Last Week
           </Button>
-          <Button variant="contained" onClick={() => setTimeStampAsMonth()}>
+          <Button  style={{marginLeft: 10, marginBottom: 10}} variant="contained" onClick={() => setTimeStampAsMonth()}>
             Last Month
           </Button>
+          </div>
         </Grid>
       </Grid>
     </Container>
   );
 }
+
