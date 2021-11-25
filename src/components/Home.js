@@ -67,9 +67,9 @@ export default function Home() {
 
   return (
     <Container className="Margin">
-      <Grid container spacing={2}>
+      <Grid className="homeGrid" container spacing={2} display="flex">
         {/*-------------------------- TEMPERATURE CARD --------------------------*/}
-        <Grid item xs={8} md={4}>
+        <Grid item xs={12} sm={6} md={4}>
           <ReactCardFlip
             isFlipped={flipTemperatureCard}
             flipDirection="vertical"
@@ -127,7 +127,7 @@ export default function Home() {
           </ReactCardFlip>
         </Grid>
         {/*-------------------------- AIR PRESSURE CARD --------------------------*/}
-        <Grid item xs={8} md={4}>
+        <Grid item xs={12} sm={6} md={4}>
           <Card className="CardMainPage">
             <CardHeader
               style={{
@@ -145,7 +145,7 @@ export default function Home() {
           </Card>
         </Grid>
         {/*-------------------------- AIR HUMIDITY CARD --------------------------*/}
-        <Grid item xs={8} md={4}>
+        <Grid item xs={12} sm={6} md={4}>
           <Card className="CardMainPage">
             <CardHeader
               style={{
@@ -162,13 +162,14 @@ export default function Home() {
             </CardContent>
           </Card>
         </Grid>
-        <Grid item xs={8} md={4}></Grid>
         {/*-------------------------- AIR QUALITY CARD --------------------------*/}
-        <Grid item xs={8} md={4}>
+        <Grid item xs={12} sm={6} md={4}>
           <Card
             className="CardMainPage"
             style={{
-              backgroundColor: aiqColor(),
+              borderStyle: "solid",
+              borderColor: aiqColor(),
+              borderWidth: 5,
             }}
             align="left"
           >

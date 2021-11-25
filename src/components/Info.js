@@ -78,7 +78,7 @@ export default function Info() {
           alignItems="center"
           justifyContent="center"
         >
-          <Grid item md={6} marginBottom={10}>
+          <Grid item sx={12} md={6} marginBottom={10}>
             <Card className="CardInfoPage">
               <CardHeader
                 title={
@@ -102,7 +102,7 @@ export default function Info() {
               </CardContent>
             </Card>
           </Grid>
-          <Grid item md={6} marginBottom={10}>
+          <Grid item sx={12}  md={6} marginBottom={10}>
             <Card className="CardInfoPage">
               <CardHeader
                 title={
@@ -134,7 +134,7 @@ export default function Info() {
           alignItems="center"
           justifyContent="center"
         >
-          <Grid item md={6}>
+          <Grid item sx={12}  md={6}>
             <Card className="CardInfoPage">
               <CardHeader
                 title={
@@ -158,7 +158,7 @@ export default function Info() {
               </CardContent>
             </Card>
           </Grid>
-          <Grid item md={6}>
+          <Grid item sx={12} md={6}>
             <Card className="CardInfoPage">
               <CardHeader
                 title={
@@ -176,7 +176,7 @@ export default function Info() {
               <CardContent>
                 <Typography>
                   Member of board of directors and head of hardware. Constructed
-                  the technologie that is behind ESP and all the sensors.
+                  the technologie that is behind ESP and all the sensors. Also constructed electrical schema.
                 </Typography>
               </CardContent>
             </Card>
@@ -190,7 +190,9 @@ export default function Info() {
         >
           Technologies that we used
         </Typography>
+        <Grid item xs={12}>
         <ImageSlider slides={SliderData} />
+        </Grid>
       </Grid>
     </Container>
   );

@@ -131,13 +131,13 @@ export default function AirHumidityPage() {
           </LocalizationProvider>
         </Grid>
         <Grid item xs={4} m={2}>
-          <Button variant="contained" onClick={() => setTimeStampAsDay()}>
+          <Button style={{marginLeft: 10}} variant="contained" onClick={() => setTimeStampAsDay()}>
             Last Day
           </Button>
-          <Button variant="contained" onClick={() => setTimeStampAsWeek()}>
+          <Button style={{marginLeft: 10}} variant="contained" onClick={() => setTimeStampAsWeek()}>
             Last Week
           </Button>
-          <Button variant="contained" onClick={() => setTimeStampAsMonth()}>
+          <Button  style={{marginLeft: 10}} variant="contained" onClick={() => setTimeStampAsMonth()}>
             Last Month
           </Button>
         </Grid>
