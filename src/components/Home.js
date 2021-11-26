@@ -102,8 +102,8 @@ export default function Home() {
                 }
                 title={<Typography>Temperature</Typography>}
               />
-              <CardContent align="right">
-                <Typography gutterBottom variant="h3" component="div">
+              <CardContent align="center">
+                <Typography gutterBottom variant="h2" component="div">
                   {currentTemp}°C
                 </Typography>
               </CardContent>
@@ -127,8 +127,8 @@ export default function Home() {
                 }
                 title={<Typography>Temperature</Typography>}
               />
-              <CardContent align="right">
-                <Typography gutterBottom variant="h3" component="div">
+              <CardContent align="center">
+                <Typography gutterBottom variant="h2" component="div">
                   {fahrenheit}°F
                 </Typography>
               </CardContent>
@@ -146,8 +146,8 @@ export default function Home() {
               avatar={<FontAwesomeIcon icon={faWind} size="2x" color="white" />}
               title={<Typography>Air Pressure</Typography>}
             />
-            <CardContent align="right">
-              <Typography gutterBottom variant="h3" component="div">
+            <CardContent align="center">
+              <Typography gutterBottom variant="h2" component="div">
                 {currentAirPressure} hPa
               </Typography>
             </CardContent>
@@ -164,8 +164,8 @@ export default function Home() {
               avatar={<FontAwesomeIcon icon={faTint} size="2x" color="white" />}
               title={<Typography>Air Humidity</Typography>}
             />
-            <CardContent align="right">
-              <Typography gutterBottom variant="h3" component="div">
+            <CardContent align="center">
+              <Typography gutterBottom variant="h2" component="div">
                 {currentAirHumidity}%
               </Typography>
             </CardContent>
@@ -192,8 +192,8 @@ export default function Home() {
               }
               title={<Typography>Air Quality</Typography>}
             />
-            <CardContent align="right">
-              <Typography gutterBottom variant="h3" component="div">
+            <CardContent align="center">
+              <Typography gutterBottom variant="h2" component="div">
                 {currentAirQuality} AQI
               </Typography>
             </CardContent>
