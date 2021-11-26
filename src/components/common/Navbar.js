@@ -61,7 +61,7 @@ export default function TemporaryDrawer() {
       <List>
         <Divider />
         <ListItem>
-          <Button component={Link} to="/">
+          <Button onClick={toggleDrawer(false)} component={Link} to="/">
             <ListItemIcon>
               <FontAwesomeIcon icon={faHome} size="3x" color="white" />
             </ListItemIcon>
@@ -72,7 +72,11 @@ export default function TemporaryDrawer() {
         </ListItem>
         <Divider />
         <ListItem>
-          <Button component={Link} to="/temperatureInfo">
+          <Button
+            onClick={toggleDrawer(false)}
+            component={Link}
+            to="/temperatureInfo"
+          >
             <ListItemIcon>
               <FontAwesomeIcon
                 icon={faThermometerHalf}
@@ -87,7 +91,11 @@ export default function TemporaryDrawer() {
         </ListItem>
         <Divider />
         <ListItem>
-          <Button component={Link} to="/airPressureInfo">
+          <Button
+            onClick={toggleDrawer(false)}
+            component={Link}
+            to="/airPressureInfo"
+          >
             <ListItemIcon>
               <FontAwesomeIcon icon={faWind} size="3x" color="white" />
             </ListItemIcon>
@@ -98,7 +106,11 @@ export default function TemporaryDrawer() {
         </ListItem>
         <Divider />
         <ListItem>
-          <Button component={Link} to="/airHumidityInfo">
+          <Button
+            onClick={toggleDrawer(false)}
+            component={Link}
+            to="/airHumidityInfo"
+          >
             <ListItemIcon>
               <FontAwesomeIcon icon={faTint} size="3x" color="white" />
             </ListItemIcon>
@@ -109,7 +121,11 @@ export default function TemporaryDrawer() {
         </ListItem>
         <Divider />
         <ListItem>
-          <Button component={Link} to="/airQualityInfo">
+          <Button
+            onClick={toggleDrawer(false)}
+            component={Link}
+            to="/airQualityInfo"
+          >
             <ListItemIcon>
               <FontAwesomeIcon icon={faCloud} size="3x" color="white" />
             </ListItemIcon>
@@ -120,7 +136,7 @@ export default function TemporaryDrawer() {
         </ListItem>
         <Divider />
         <ListItem>
-          <Button component={Link} to="/info">
+          <Button onClick={toggleDrawer(false)} component={Link} to="/info">
             <ListItemIcon>
               <FontAwesomeIcon icon={faInfo} size="3x" color="white" />
             </ListItemIcon>
