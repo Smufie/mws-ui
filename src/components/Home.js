@@ -26,7 +26,7 @@ export default function Home() {
   const [currentAirQuality, setCurrentAirQuality] = useState(0);
   const [lastMeasurmentDate, setLastMeasurmentDate] = useState("");
   const [flipTemperatureCard, setFlipTemperatureCard] = useState(false);
-
+  var fahrenheit = currentTemp * 1.8 + 32;
   function aiqColor() {
     if (currentAirQuality <= 13) {
       return "#008000";
@@ -74,7 +74,10 @@ export default function Home() {
             isFlipped={flipTemperatureCard}
             flipDirection="vertical"
           >
-            <Card className="CardMainPage">
+            <Card
+              className="CardMainPage"
+              onClick={() => setFlipTemperatureCard(true)}
+            >
               <CardHeader
                 style={{
                   background:
@@ -94,12 +97,12 @@ export default function Home() {
                 <Typography gutterBottom variant="h3" component="div">
                   {currentTemp}°C
                 </Typography>
-                <Button onClick={() => setFlipTemperatureCard(true)}>
-                  FLIP ME
-                </Button>
               </CardContent>
             </Card>
-            <Card className="CardMainPage">
+            <Card
+              className="CardMainPage"
+              onClick={() => setFlipTemperatureCard(false)}
+            >
               <CardHeader
                 style={{
                   background:
@@ -116,12 +119,9 @@ export default function Home() {
                 title={<Typography>Temperature</Typography>}
               />
               <CardContent align="right">
-                <Typography gutterBottom variant="h4" component="div">
-                  Some boring text
+                <Typography gutterBottom variant="h3" component="div">
+                  {fahrenheit}°F
                 </Typography>
-                <Button onClick={() => setFlipTemperatureCard(false)}>
-                  FLIP ME
-                </Button>
               </CardContent>
             </Card>
           </ReactCardFlip>
