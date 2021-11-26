@@ -201,12 +201,15 @@ export default function Home() {
         </Grid>
         {/*-------------------------- Last Measurment Card --------------------------*/}
         <Grid item xs={12} sm={6} md={4}>
-          <Card className="CardMainPage" align="left">
+          <Card
+            className="CardMainPage"
+            align="left"
+            style={{
+              background: "linear-gradient(45deg, #141e30 30%, #243b55 90%)",
+              color: "white",
+            }}
+          >
             <CardHeader
-              style={{
-                background: "linear-gradient(45deg, #141e30 30%, #243b55 90%)",
-                color: "white",
-              }}
               avatar={
                 <FontAwesomeIcon icon={faCalendar} size="2x" color="white" />
               }
