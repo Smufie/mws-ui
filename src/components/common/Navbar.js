@@ -63,7 +63,9 @@ export default function TemporaryDrawer() {
         <ListItem>
           <Button onClick={toggleDrawer(false)} component={Link} to="/">
             <ListItemIcon>
-              <FontAwesomeIcon icon={faHome} size="3x" color="white" />
+              <Box sx={{ pl: 0 }}>
+                <FontAwesomeIcon icon={faHome} size="3x" color="white" />
+              </Box>
             </ListItemIcon>
             <ListItemText>
               <Typography color="common.white">Home</Typography>
@@ -78,11 +80,13 @@ export default function TemporaryDrawer() {
             to="/temperatureInfo"
           >
             <ListItemIcon>
-              <FontAwesomeIcon
-                icon={faThermometerHalf}
-                size="3x"
-                color="white"
-              />
+              <Box sx={{ pl: 1.4 }}>
+                <FontAwesomeIcon
+                  icon={faThermometerHalf}
+                  size="3x"
+                  color="white"
+                />
+              </Box>
             </ListItemIcon>
             <ListItemText>
               <Typography color="common.white">Temperature Details</Typography>
@@ -97,7 +101,9 @@ export default function TemporaryDrawer() {
             to="/airPressureInfo"
           >
             <ListItemIcon>
-              <FontAwesomeIcon icon={faWind} size="3x" color="white" />
+              <Box sx={{ pl: 0.2 }}>
+                <FontAwesomeIcon icon={faWind} size="3x" color="white" />
+              </Box>
             </ListItemIcon>
             <ListItemText>
               <Typography color="common.white">Air Pressure Details</Typography>
@@ -112,7 +118,9 @@ export default function TemporaryDrawer() {
             to="/airHumidityInfo"
           >
             <ListItemIcon>
-              <FontAwesomeIcon icon={faTint} size="3x" color="white" />
+              <Box sx={{ pl: 0.7 }}>
+                <FontAwesomeIcon icon={faTint} size="3x" color="white" />
+              </Box>
             </ListItemIcon>
             <ListItemText>
               <Typography color="common.white">Air Humidity Details</Typography>
@@ -127,7 +135,9 @@ export default function TemporaryDrawer() {
             to="/airQualityInfo"
           >
             <ListItemIcon>
-              <FontAwesomeIcon icon={faCloud} size="3x" color="white" />
+              <Box sx={{ pl: 0.2 }}>
+                <FontAwesomeIcon icon={faCloud} size="2x" color="white" />
+              </Box>
             </ListItemIcon>
             <ListItemText>
               <Typography color="common.white">Air Quality Details</Typography>
@@ -138,7 +148,9 @@ export default function TemporaryDrawer() {
         <ListItem>
           <Button onClick={toggleDrawer(false)} component={Link} to="/info">
             <ListItemIcon>
-              <FontAwesomeIcon icon={faInfo} size="3x" color="white" />
+              <Box sx={{ pl: 1.6 }}>
+                <FontAwesomeIcon icon={faInfo} size="3x" color="white" />
+              </Box>
             </ListItemIcon>
             <ListItemText>
               <Typography color="common.white">About</Typography>
