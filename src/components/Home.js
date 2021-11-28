@@ -15,6 +15,7 @@ import {
   faThermometerHalf,
   faWind,
   faTint,
+  faCalendar,
 } from "@fortawesome/free-solid-svg-icons";
 import ReactCardFlip from "react-card-flip";
 
@@ -26,6 +27,7 @@ export default function Home() {
   const [currentAirQuality, setCurrentAirQuality] = useState(0);
   const [lastMeasurmentDate, setLastMeasurmentDate] = useState("");
   const [flipTemperatureCard, setFlipTemperatureCard] = useState(false);
+  var fahrenheit = currentTemp * 1.8 + 32;
 
   function aiqColor() {
     if (currentAirQuality <= 13) {
@@ -65,6 +67,13 @@ export default function Home() {
     }
   }, [data]);
 
+  function getDate() {
+    if (lastMeasurmentDate != "")
+      return (
+        lastMeasurmentDate[0] + " " + lastMeasurmentDate[1].substring(0, 5)
+      );
+  }
+
   return (
     <Container className="Margin">
       <Grid className="homeGrid" container spacing={2} display="flex">
@@ -74,7 +83,10 @@ export default function Home() {
             isFlipped={flipTemperatureCard}
             flipDirection="vertical"
           >
-            <Card className="CardMainPage">
+            <Card
+              className="CardMainPage"
+              onClick={() => setFlipTemperatureCard(true)}
+            >
               <CardHeader
                 style={{
                   background:
@@ -90,16 +102,16 @@ export default function Home() {
                 }
                 title={<Typography>Temperature</Typography>}
               />
-              <CardContent align="right">
-                <Typography gutterBottom variant="h3" component="div">
+              <CardContent align="center">
+                <Typography gutterBottom variant="h2" component="div">
                   {currentTemp}°C
                 </Typography>
-                <Button onClick={() => setFlipTemperatureCard(true)}>
-                  FLIP ME
-                </Button>
               </CardContent>
             </Card>
-            <Card className="CardMainPage">
+            <Card
+              className="CardMainPage"
+              onClick={() => setFlipTemperatureCard(false)}
+            >
               <CardHeader
                 style={{
                   background:
@@ -115,13 +127,10 @@ export default function Home() {
                 }
                 title={<Typography>Temperature</Typography>}
               />
-              <CardContent align="right">
-                <Typography gutterBottom variant="h4" component="div">
-                  Some boring text
+              <CardContent align="center">
+                <Typography gutterBottom variant="h2" component="div">
+                  {fahrenheit}°F
                 </Typography>
-                <Button onClick={() => setFlipTemperatureCard(false)}>
-                  FLIP ME
-                </Button>
               </CardContent>
             </Card>
           </ReactCardFlip>
@@ -137,8 +146,8 @@ export default function Home() {
               avatar={<FontAwesomeIcon icon={faWind} size="2x" color="white" />}
               title={<Typography>Air Pressure</Typography>}
             />
-            <CardContent align="right">
-              <Typography gutterBottom variant="h3" component="div">
+            <CardContent align="center">
+              <Typography gutterBottom variant="h2" component="div">
                 {currentAirPressure} hPa
               </Typography>
             </CardContent>
@@ -155,8 +164,8 @@ export default function Home() {
               avatar={<FontAwesomeIcon icon={faTint} size="2x" color="white" />}
               title={<Typography>Air Humidity</Typography>}
             />
-            <CardContent align="right">
-              <Typography gutterBottom variant="h3" component="div">
+            <CardContent align="center">
+              <Typography gutterBottom variant="h2" component="div">
                 {currentAirHumidity}%
               </Typography>
             </CardContent>
@@ -183,17 +192,38 @@ export default function Home() {
               }
               title={<Typography>Air Quality</Typography>}
             />
-            <CardContent align="right">
-              <Typography gutterBottom variant="h3" component="div">
+            <CardContent align="center">
+              <Typography gutterBottom variant="h2" component="div">
                 {currentAirQuality} AQI
               </Typography>
             </CardContent>
           </Card>
         </Grid>
+        {/*-------------------------- Last Measurment Card --------------------------*/}
+        <Grid item xs={12} sm={6} md={4}>
+          <Card
+            className="CardMainPage"
+            align="left"
+            style={{
+              background: "linear-gradient(45deg, #141e30 30%, #243b55 90%)",
+              color: "white",
+            }}
+          >
+            <CardHeader
+              avatar={
+                <FontAwesomeIcon icon={faCalendar} size="2x" color="white" />
+              }
+              title={<Typography>Last Measurment</Typography>}
+            />
+            <CardContent align="center">
+              <Typography gutterBottom variant="h3" component="div">
+                {getDate()}
+              </Typography>
+            </CardContent>
+          </Card>
+        </Grid>
       </Grid>
-      <Typography align="center">
-        Last Measurment: {lastMeasurmentDate[0]} {lastMeasurmentDate[1]}
-      </Typography>
+      <Typography align="center">To view more, click on the cards</Typography>
     </Container>
   );
 }
