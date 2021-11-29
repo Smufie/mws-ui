@@ -75,7 +75,7 @@ export default function Home() {
   }
 
   return (
-    <Container className="Margin">
+    <Container className="MarginMainPage">
       <Typography align="center" style={{ color: "grey" }}>
         To view more, click on the cards
       </Typography>
