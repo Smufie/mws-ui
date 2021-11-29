@@ -76,6 +76,9 @@ export default function Home() {
 
   return (
     <Container className="Margin">
+      <Typography align="center" style={{ color: "grey" }}>
+        To view more, click on the cards
+      </Typography>
       <Grid className="homeGrid" container spacing={2} display="flex">
         {/*-------------------------- TEMPERATURE CARD --------------------------*/}
         <Grid item xs={12} sm={6} md={4}>
@@ -86,6 +89,7 @@ export default function Home() {
             <Card
               className="CardMainPage"
               onClick={() => setFlipTemperatureCard(true)}
+              sx={{ ":hover": { boxShadow: 20 } }}
             >
               <CardHeader
                 style={{
@@ -111,6 +115,7 @@ export default function Home() {
             <Card
               className="CardMainPage"
               onClick={() => setFlipTemperatureCard(false)}
+              sx={{ ":hover": { boxShadow: 20 } }}
             >
               <CardHeader
                 style={{
@@ -137,7 +142,7 @@ export default function Home() {
         </Grid>
         {/*-------------------------- AIR PRESSURE CARD --------------------------*/}
         <Grid item xs={12} sm={6} md={4}>
-          <Card className="CardMainPage">
+          <Card className="CardMainPage" sx={{ ":hover": { boxShadow: 20 } }}>
             <CardHeader
               style={{
                 background: "linear-gradient(45deg, #141e30 30%, #243b55 90%)",
@@ -155,7 +160,7 @@ export default function Home() {
         </Grid>
         {/*-------------------------- AIR HUMIDITY CARD --------------------------*/}
         <Grid item xs={12} sm={6} md={4}>
-          <Card className="CardMainPage">
+          <Card className="CardMainPage" sx={{ ":hover": { boxShadow: 20 } }}>
             <CardHeader
               style={{
                 background: "linear-gradient(45deg, #141e30 30%, #243b55 90%)",
@@ -181,6 +186,7 @@ export default function Home() {
               borderWidth: 5,
             }}
             align="left"
+            sx={{ ":hover": { boxShadow: 20 } }}
           >
             <CardHeader
               style={{
@@ -223,7 +229,6 @@ export default function Home() {
           </Card>
         </Grid>
       </Grid>
-      <Typography align="center">To view more, click on the cards</Typography>
     </Container>
   );
 }
