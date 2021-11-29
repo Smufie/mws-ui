@@ -24,6 +24,11 @@ code {
   margin-bottom: 100px;
 }
 
+.MarginMainPage {
+  margin-top: 65px;
+  margin-bottom: 100px;
+}
+
 .CardMainPage {
   max-width: 350px;
   min-width: 250px;
@@ -41,6 +46,7 @@ code {
     margin-top: 120px;
     height: auto;
   }
+
   .Footer {
     height: auto;
     width: 100vw;
@@ -87,7 +93,6 @@ code {
   z-index: 10;
   cursor: pointer;
   user-select: none;
-
 }
 
 .left-arrow {
@@ -102,6 +107,9 @@ code {
 }
 
 @media screen and (max-width: 900px) {
+  .MarginMainPage {
+    margin-top: 110px;
+  }
   .slider {
     max-width: 250px;
   }
