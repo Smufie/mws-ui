@@ -110,36 +110,52 @@ export default function AirQualityPage() {
           rootProps={{ "data-testid": "1" }}
         />
         <Grid item xs={4}>
-          <LocalizationProvider dateAdapter={DateAdapter}>
-            <DateTimePicker
-              label="Filter From"
-              value={searchFromValue}
-              onChange={(newValue) => {
-                setSearchFromValue(new Date(newValue));
-              }}
-              renderInput={(params) => <TextField {...params} />}
-            />
+          <div className="filterButtons">
+            <LocalizationProvider dateAdapter={DateAdapter}>
+              <DateTimePicker
+                label="Filter From"
+                value={searchFromValue}
+                onChange={(newValue) => {
+                  setSearchFromValue(new Date(newValue));
+                }}
+                renderInput={(params) => <TextField {...params} />}
+              />
 
-            <DateTimePicker
-              label="Filter To"
-              value={searchToValue}
-              onChange={(newValue) => {
-                setSearchToValue(new Date(newValue));
-              }}
-              renderInput={(params) => <TextField {...params} />}
-            />
-          </LocalizationProvider>
+              <DateTimePicker
+                label="Filter To"
+                value={searchToValue}
+                onChange={(newValue) => {
+                  setSearchToValue(new Date(newValue));
+                }}
+                renderInput={(params) => <TextField {...params} />}
+              />
+            </LocalizationProvider>
+          </div>
         </Grid>
         <Grid item xs={4} m={2}>
-          <Button  style={{marginLeft: 10}} variant="contained" onClick={() => setTimeStampAsDay()}>
-            Last Day
-          </Button>
-          <Button  style={{marginLeft: 10}} variant="contained" onClick={() => setTimeStampAsWeek()}>
-            Last Week
-          </Button>
-          <Button  style={{marginLeft: 10}} variant="contained" onClick={() => setTimeStampAsMonth()}>
-            Last Month
-          </Button>
+          <div className="filterButtons">
+            <Button
+              style={{ marginLeft: 10, marginBottom: 10 }}
+              variant="contained"
+              onClick={() => setTimeStampAsDay()}
+            >
+              Last Day
+            </Button>
+            <Button
+              style={{ marginLeft: 10, marginBottom: 10 }}
+              variant="contained"
+              onClick={() => setTimeStampAsWeek()}
+            >
+              Last Week
+            </Button>
+            <Button
+              style={{ marginLeft: 10 }}
+              variant="contained"
+              onClick={() => setTimeStampAsMonth()}
+            >
+              Last Month
+            </Button>
+          </div>
         </Grid>
         <BasicModal />
       </Grid>

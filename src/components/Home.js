@@ -27,7 +27,9 @@ export default function Home() {
   const [currentAirQuality, setCurrentAirQuality] = useState(0);
   const [lastMeasurmentDate, setLastMeasurmentDate] = useState("");
   const [flipTemperatureCard, setFlipTemperatureCard] = useState(false);
+  const [flipAirPressureCard, setFlipAirPressureCard] = useState(false);
   var fahrenheit = currentTemp * 1.8 + 32;
+  var psi = Math.round(currentAirPressure * 0.0145037738 * 100) / 100;
 
   function aiqColor() {
     if (currentAirQuality <= 13) {
@@ -60,7 +62,7 @@ export default function Home() {
     if (data !== 0) {
       var length = data.length;
       setCurrentTemp(data[length - 1].temperature);
-      setCurrentAirPressure(data[length - 1].pressure);
+      setCurrentAirPressure(1024);
       setCurrentAirHumidity(data[length - 1].humidity);
       setCurrentAirQuality(data[length - 1].airQuality);
       setLastMeasurmentDate(data[length - 1].measurementDate.split("T"));
@@ -142,21 +144,55 @@ export default function Home() {
         </Grid>
         {/*-------------------------- AIR PRESSURE CARD --------------------------*/}
         <Grid item xs={12} sm={6} md={4}>
-          <Card className="CardMainPage" sx={{ ":hover": { boxShadow: 20 } }}>
-            <CardHeader
-              style={{
-                background: "linear-gradient(45deg, #141e30 30%, #243b55 90%)",
-                color: "white",
-              }}
-              avatar={<FontAwesomeIcon icon={faWind} size="2x" color="white" />}
-              title={<Typography>Air Pressure</Typography>}
-            />
-            <CardContent align="center">
-              <Typography gutterBottom variant="h2" component="div">
-                {currentAirPressure} hPa
-              </Typography>
-            </CardContent>
-          </Card>
+          <ReactCardFlip
+            isFlipped={flipAirPressureCard}
+            flipDirection="vertical"
+          >
+            <Card
+              className="CardMainPage"
+              onClick={() => setFlipAirPressureCard(true)}
+              sx={{ ":hover": { boxShadow: 20 } }}
+            >
+              <CardHeader
+                style={{
+                  background:
+                    "linear-gradient(45deg, #141e30 30%, #243b55 90%)",
+                  color: "white",
+                }}
+                avatar={
+                  <FontAwesomeIcon icon={faWind} size="2x" color="white" />
+                }
+                title={<Typography>Air Pressure</Typography>}
+              />
+              <CardContent align="center">
+                <Typography gutterBottom variant="h2" component="div">
+                  {currentAirPressure} hPa
+                </Typography>
+              </CardContent>
+            </Card>
+            <Card
+              className="CardMainPage"
+              onClick={() => setFlipAirPressureCard(false)}
+              sx={{ ":hover": { boxShadow: 20 } }}
+            >
+              <CardHeader
+                style={{
+                  background:
+                    "linear-gradient(45deg, #141e30 30%, #243b55 90%)",
+                  color: "white",
+                }}
+                avatar={
+                  <FontAwesomeIcon icon={faWind} size="2x" color="white" />
+                }
+                title={<Typography>Air Pressure</Typography>}
+              />
+              <CardContent align="center">
+                <Typography gutterBottom variant="h2" component="div">
+                  {psi} Psi
+                </Typography>
+              </CardContent>
+            </Card>
+          </ReactCardFlip>
         </Grid>
         {/*-------------------------- AIR HUMIDITY CARD --------------------------*/}
         <Grid item xs={12} sm={6} md={4}>
