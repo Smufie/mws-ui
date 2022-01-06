@@ -196,7 +196,7 @@ export default function Home() {
         </Grid>
         {/*-------------------------- AIR HUMIDITY CARD --------------------------*/}
         <Grid item xs={12} sm={6} md={4}>
-          <Card className="CardMainPage" sx={{ ":hover": { boxShadow: 20 } }}>
+          <Card className="CardMainPage">
             <CardHeader
               style={{
                 background: "linear-gradient(45deg, #141e30 30%, #243b55 90%)",
@@ -222,7 +222,6 @@ export default function Home() {
               borderWidth: 5,
             }}
             align="left"
-            sx={{ ":hover": { boxShadow: 20 } }}
           >
             <CardHeader
               style={{
