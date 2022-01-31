@@ -8,7 +8,6 @@ import AirPressurePage from "./components/AirPressurePage";
 import AirHumidityPage from "./components/AirHumidityPage";
 import AirQualityPage from "./components/AirQualityPage";
 import Info from "./components/Info";
-import { Container } from "@mui/material";
 
 export default function App() {
   return (

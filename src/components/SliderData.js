@@ -6,6 +6,8 @@ import js from './logos/js.png'
 import mui from './logos/materialmui.png'
 import java from './logos/java.png'
 import reactLogo from './logos/react.png'
+import springboot from './logos/springboot.png'
+import maven from './logos/maven.jpeg'
 
 export const SliderData = [
     {
@@ -31,6 +33,12 @@ export const SliderData = [
     },
     {
         image: reactLogo
+    },
+    {
+        image: maven
+    },
+    {
+        image: springboot
     }
     
 ];

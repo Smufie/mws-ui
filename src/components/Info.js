@@ -8,7 +8,6 @@ import {
   CardHeader,
   CardMedia,
 } from "@mui/material";
-import { fontSize } from "@mui/lab/node_modules/@mui/system";
 import jedrzej from "./Photos/jedrzej.jpg";
 import blazej from "./Photos/blazej.jpg";
 import janek from "./Photos/olszew.jpg";
@@ -95,9 +94,7 @@ export default function Info() {
               ></CardMedia>
               <CardContent>
                 <Typography>
-                  Our CEO and person responsible for web appliation. He
-                  supervised usage of front-end technologies. Also helped to
-                  create box in CAD.
+                  Created web app and manufactured case for Mobile Weather Station.
                 </Typography>
               </CardContent>
             </Card>
@@ -119,9 +116,7 @@ export default function Info() {
               ></CardMedia>
               <CardContent>
                 <Typography>
-                  Main frontend developer and CAD consultant. Mastered React
-                  technologies and MUI materials tool. Member of board of
-                  directors.
+                  Created web app and manufactured case for Mobile Weather Station.
                 </Typography>
               </CardContent>
             </Card>
@@ -151,9 +146,7 @@ export default function Info() {
               ></CardMedia>
               <CardContent>
                 <Typography>
-                  Person responisble for backend technologies. Mastered Java and
-                  MongoDB. Consultant to board of directors and hardwear
-                  technologies. Founder of MWS.
+                  Created Java server and PCB. Also designed the power circuit for the MWS.
                 </Typography>
               </CardContent>
             </Card>
@@ -175,8 +168,7 @@ export default function Info() {
               ></CardMedia>
               <CardContent>
                 <Typography>
-                  Member of board of directors and head of hardware. Constructed
-                  the technologie that is behind ESP and all the sensors. Also constructed electrical schema.
+                  Programmed ESP and configured the database. Also constructed electrical schema.
                 </Typography>
               </CardContent>
             </Card>

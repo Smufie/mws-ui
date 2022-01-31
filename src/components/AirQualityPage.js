@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Button from "@mui/material/Button";
-import { Container, Grid, Modal, Typography } from "@mui/material";
+import { Container, Grid, Typography } from "@mui/material";
 import customInstance from "../api/axiosConfig";
 import Chart from "react-google-charts";
 import DateAdapter from "@mui/lab/AdapterMoment";
