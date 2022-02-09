@@ -24,7 +24,7 @@ export default function Home() {
   const [lastMeasurmentDate, setLastMeasurmentDate] = useState("");
   const [flipTemperatureCard, setFlipTemperatureCard] = useState(false);
   const [flipAirPressureCard, setFlipAirPressureCard] = useState(false);
-  var fahrenheit = currentTemp * 1.8 + 32;
+  var fahrenheit = Math.round(currentTemp * 1.8 * 100) / 100 + 32;
   var psi = Math.round(currentAirPressure * 0.0145037738 * 100) / 100;
 
   function aiqColor() {
@@ -57,14 +57,14 @@ export default function Home() {
   useEffect(() => {
     if (data !== 0) {
       var length = data.length;
-      // var lastDayTime = new Date(data[length - 1].measurementDate);
-      // lastDayTime.setHours(lastDayTime.getHours() + 2);
+      var lastDayTime = new Date(data[length - 1].measurementDate);
+      lastDayTime.setHours(lastDayTime.getHours() + 2);
       setCurrentTemp(data[length - 1].temperature);
       setCurrentAirPressure(data[length - 1].pressure);
       setCurrentAirHumidity(data[length - 1].humidity);
       setCurrentAirQuality(data[length - 1].airQuality);
-      //setLastMeasurmentDate(lastDayTime.toISOString().split("T"));
-      setLastMeasurmentDate(data[length - 1].measurementDate.split("T"));
+      setLastMeasurmentDate(lastDayTime.toISOString().split("T"));
+      //setLastMeasurmentDate(data[length - 1].measurementDate.split("T"));
     }
   }, [data]);
 
