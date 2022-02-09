@@ -58,8 +58,7 @@ export default function Home() {
     if (data !== 0) {
       var length = data.length;
       var lastDayTime = new Date(data[length - 1].measurementDate);
-      var getOurHour = lastDayTime.getHours() + 2;
-      lastDayTime.setHours(getOurHour);
+      lastDayTime.setHours(lastDayTime.getHours() + 2);
       setCurrentTemp(data[length - 1].temperature);
       setCurrentAirPressure(data[length - 1].pressure);
       setCurrentAirHumidity(data[length - 1].humidity);
